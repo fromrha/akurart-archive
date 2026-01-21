@@ -8,16 +8,32 @@ export default function Navbar() {
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // Height of Marquee (approx 54px)
+    const marqueeHeight = 54;
+    const isHome = pathname === "/";
+
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
+            // If on home, only fix navbar after scrolling past marquee
+            const threshold = isHome ? marqueeHeight : 0;
+            setIsScrolled(window.scrollY > threshold);
         };
+
+        // Check initially
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHome]);
 
     return (
-        <nav className={`${isScrolled ? 'fixed' : 'absolute'} top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 bg-transparent transition-all`}>
+        <nav
+            className={`
+                ${isScrolled ? 'fixed top-0' : 'absolute'} 
+                ${!isScrolled && isHome ? 'top-[54px]' : 'top-0'} 
+                left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 bg-transparent transition-all
+            `}
+        >
             {/* Logo Area */}
             <Link href="/" className="flex items-center gap-2">
                 <img

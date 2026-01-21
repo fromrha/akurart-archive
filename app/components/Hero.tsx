@@ -17,21 +17,23 @@ export default function Hero() {
                 {/* Dark Overlay for text readability */}
                 <div className="absolute inset-0 bg-black/30"></div>
 
-                {/* Text Content - Bottom Left */}
-                <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
-                    <div className="relative inline-block">
-                        {/* Main Title "Akurart Archive" - Mixed case, not uppercase */}
-                        <h1 className="font-display text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#FDFFFF] whitespace-nowrap">
+                {/* Text Content - Bottom Center */}
+                <div className="absolute bottom-2 left-0 right-0 w-full flex justify-center items-end px-2 md:px-4">
+                    <div className="relative w-full text-center">
+                        {/* Main Title "Akurart Archive" - Full width, centered, single line
+                        Calibrated size: roughly 13.5vw fits 15 chars end-to-end
+                    */}
+                        <h1 className="font-display text-[14vw] md:text-[13.5vw] leading-[0.75] tracking-tighter text-[#FDFFFF] whitespace-nowrap w-full">
                             Akurart Archive
                         </h1>
 
-                        {/* Cinema Text - Overlaid over "rt" with -10deg rotation */}
+                        {/* Cinema Text - Positioned over "rt" of Akurart */}
                         <span
-                            className="absolute top-0 font-serif italic text-[#9FAC14] text-4xl md:text-6xl pointer-events-none"
+                            className="absolute top-[5%] md:top-[15%] font-serif italic text-[#9FAC14] text-[4vw] md:text-[4.5vw] pointer-events-none"
                             style={{
                                 zIndex: 10,
                                 transform: 'rotate(-10deg)',
-                                left: '38%',
+                                left: '52%', /* Adjusted for center alignment "rt" position */
                                 transformOrigin: 'left center'
                             }}
                         >

@@ -31,7 +31,7 @@ export default function ArticleGrid({ articles = [] }: { articles?: Article[] })
         <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-16">
             <div className="flex items-center justify-between mb-12">
                 <h2 className="font-display text-4xl">Terbaru</h2>
-                <Link href="/archive" className="text-sm border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors">
+                <Link href="/archive" className="text-sm border border-white/20 px-4 py-2 rounded-full hover:bg-[#FDFFFF] hover:text-[#0F0E0E] transition-colors">
                     Lihat Semua
                 </Link>
             </div>
@@ -75,11 +75,11 @@ function ArticleCard({ article }: { article: Article }) {
 
             {/* Content */}
             <div className="flex flex-col gap-1">
-                <h3 className="font-display text-xl leading-snug group-hover:text-brand-orange transition-colors">
+                <h3 className="font-display text-xl leading-snug group-hover:text-[#FF5700] transition-colors">
                     {article.title}
                 </h3>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-zinc-500 font-medium">
-                    <span className="text-brand-green">{article.category}</span>
+                <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-[#8C8D92] font-medium">
+                    <span className="text-[#32CE57]">{article.category}</span>
                     <span>•</span>
                     <span>{new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                 </div>

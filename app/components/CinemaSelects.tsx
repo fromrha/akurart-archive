@@ -22,7 +22,7 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
             <div className="w-full overflow-x-auto">
                 <table className="w-full text-left border-collapse min-w-[600px]">
                     <thead>
-                        <tr className="border-b border-white/20 text-zinc-500 font-sans text-sm uppercase tracking-wider">
+                        <tr className="border-b border-white/20 text-[#8C8D92] font-sans text-sm uppercase tracking-wider">
                             <th className="py-4 pr-8 font-medium w-[25%]">Film</th>
                             <th className="py-4 pr-8 font-medium w-[10%]">Year</th>
                             <th className="py-4 pr-8 font-medium w-[20%]">Mood</th>
@@ -32,16 +32,16 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
                     <tbody className="font-sans">
                         {movies.map((movie) => (
                             <tr key={movie._id} className="group border-b border-white/10 hover:bg-white/5 transition-colors">
-                                <td className="py-6 pr-8 font-bold text-lg group-hover:text-brand-orange transition-colors">
+                                <td className="py-6 pr-8 font-bold text-lg group-hover:text-[#FF5700] transition-colors">
                                     {movie.title}
                                 </td>
-                                <td className="py-6 pr-8 text-zinc-400">
+                                <td className="py-6 pr-8 text-[#8C8D92]">
                                     {movie.year}
                                 </td>
-                                <td className="py-6 pr-8 text-zinc-300">
+                                <td className="py-6 pr-8 text-[#FDFFFF]">
                                     {movie.mood}
                                 </td>
-                                <td className="py-6 text-right text-zinc-400 group-hover:text-white transition-colors">
+                                <td className="py-6 text-right text-[#8C8D92] group-hover:text-[#FDFFFF] transition-colors">
                                     {movie.whyWatch}
                                 </td>
                             </tr>
