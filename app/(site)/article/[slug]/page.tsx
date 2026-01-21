@@ -49,6 +49,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             src={urlFor(article.bannerImage || article.mainImage)?.url() || ""}
                             alt={article.title}
                             fill
+                            unoptimized
                             className="object-cover"
                             priority
                         />

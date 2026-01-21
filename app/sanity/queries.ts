@@ -13,7 +13,7 @@ export const HOME_PAGE_QUERY = groq`{
     bannerImage, 
     "category": categories[0]->title
   },
-  "recentArticles": *[_type == "article" && featured != true] | order(publishedAt desc)[0..7]{
+  "recentArticles": *[_type == "article"] | order(publishedAt desc)[0..7]{
     _id,
     title,
     slug,
