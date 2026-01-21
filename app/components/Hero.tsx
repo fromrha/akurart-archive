@@ -1,14 +1,8 @@
 import Image from "next/image";
-import Navbar from "./Navbar";
 
 export default function Hero() {
     return (
-        <section className="relative w-full h-screen bg-[#050505] p-[10px]">
-
-            {/* Navbar positioned over hero */}
-            <div className="absolute top-0 left-0 right-0 z-50">
-                <Navbar />
-            </div>
+        <section className="relative w-full h-screen bg-[#0F0E0E] p-[10px]">
 
             {/* Hero Image Container with Rounded Corners */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
@@ -26,13 +20,21 @@ export default function Hero() {
                 {/* Text Content - Bottom Left */}
                 <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
                     <div className="relative inline-block">
-                        {/* Main Title "Akurart Archive" - ONE LINE */}
-                        <h1 className="font-display text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter text-white uppercase">
+                        {/* Main Title "Akurart Archive" - Mixed case, not uppercase */}
+                        <h1 className="font-display text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#FDFFFF] whitespace-nowrap">
                             Akurart Archive
                         </h1>
 
-                        {/* Cinema Text - Overlaid ON TOP of "Akurart" with higher z-index */}
-                        <span className="absolute top-0 left-0 font-serif italic text-[#CFFF04] text-4xl md:text-6xl pointer-events-none" style={{ zIndex: 10 }}>
+                        {/* Cinema Text - Overlaid over "rt" with -10deg rotation */}
+                        <span
+                            className="absolute top-0 font-serif italic text-[#9FAC14] text-4xl md:text-6xl pointer-events-none"
+                            style={{
+                                zIndex: 10,
+                                transform: 'rotate(-10deg)',
+                                left: '38%',
+                                transformOrigin: 'left center'
+                            }}
+                        >
                             Cinema
                         </span>
                     </div>

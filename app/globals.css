@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0F0E0E;
+  --foreground: #FDFFFF;
 }
 
 @theme inline {
@@ -14,20 +14,26 @@
   --font-serif: var(--font-instrument-serif);
 
   /* Brand Colors from Figma */
-  --color-brand-orange: #FF5500;
+  --color-brand-orange: #FF5700;
   /* Halaman Utama / Home */
-  --color-brand-green: #22C55E;
+  --color-brand-green: #32CE57;
   /* Arsip */
-  --color-brand-blue: #3B82F6;
+  --color-brand-blue: #A3CAFF;
   /* Tentang Kami */
-  --color-brand-dark: #050505;
+  --color-brand-dark: #0F0E0E;
   /* Deep background */
+  --color-brand-white: #FDFFFF;
+  /* Main white */
+  --color-brand-cinema: #9FAC14;
+  /* Cinema text */
+  --color-brand-gray: #8C8D92;
+  /* Marquee text */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0F0E0E;
+    --foreground: #FDFFFF;
   }
 }
 
@@ -35,6 +41,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E");
 }
 
 @keyframes marquee {

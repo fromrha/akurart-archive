@@ -14,7 +14,7 @@ export default async function Home() {
   const { recentArticles, movies } = data;
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-brand-orange selection:text-white">
+    <main className="min-h-screen bg-[#0F0E0E] text-[#FDFFFF] selection:bg-[#FF5700] selection:text-[#0F0E0E]">
       <Marquee />
       <Hero />
       <ArticleGrid articles={recentArticles} />
