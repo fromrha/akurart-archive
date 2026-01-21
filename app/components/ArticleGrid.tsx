@@ -78,14 +78,14 @@ function ArticleCard({ article }: { article: Article }) {
 
             {/* Content Glassmorphic Overlay */}
             <div className="absolute bottom-4 left-4 right-4 md:bottom-5 md:left-5 md:right-5">
-                <div className="bg-[#1a1a1a]/60 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow-2xl">
+                <div className="bg-[#acacac]/10 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow-2xl">
                     <h3 className="font-sans font-semibold text-xl md:text-2xl text-[#FDFFFF] leading-tight mb-2">
                         {article.title}
                     </h3>
                     <div className="flex items-center gap-2 text-sm text-[#FDFFFF]/80 font-sans">
-                        <span className="font-medium uppercase tracking-wider">{article.category}</span>
+                        <span className="font-medium tracking-wider">{article.category}</span>
                         <span className="opacity-40">•</span>
-                        <span>{new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                        <span>{new Date(article.publishedAt || (article as any)._createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                     </div>
                 </div>
             </div>
