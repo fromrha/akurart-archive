@@ -10,6 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-tilt-warp);
+  --font-serif: var(--font-instrument-serif);
+
+  /* Brand Colors from Figma */
+  --color-brand-orange: #FF5500;
+  /* Halaman Utama / Home */
+  --color-brand-green: #22C55E;
+  /* Arsip */
+  --color-brand-blue: #3B82F6;
+  /* Tentang Kami */
+  --color-brand-dark: #050505;
+  /* Deep background */
 }
 
 @media (prefers-color-scheme: dark) {
