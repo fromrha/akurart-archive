@@ -7,7 +7,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className="relative flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm">
+        <nav className="sticky top-0 flex items-center justify-between px-6 py-4 bg-transparent">
             {/* Logo Area */}
             <Link href="/" className="flex items-center gap-2">
                 <img
@@ -23,7 +23,7 @@ export default function Navbar() {
                     href="/"
                     label="Halaman Utama"
                     colorClass="bg-brand-orange text-white"
-                    borderRadius="rounded-lg"
+                    borderRadius=""
                     isActive={pathname === "/"}
                 />
                 <NavButton
