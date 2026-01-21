@@ -23,7 +23,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     }
 
     return (
-        <article className="min-h-screen bg-[#050505] text-white selection:bg-brand-orange selection:text-white">
+        <article className="min-h-screen bg-[#0F0E0E] text-[#FDFFFF] selection:bg-[#FF5700] selection:text-[#0F0E0E]">
 
             {/* Header Section */}
             <header className="max-w-[1400px] mx-auto px-4 md:px-8 pt-12 md:pt-20 flex flex-col items-center text-center">
@@ -34,9 +34,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 </h1>
 
                 {/* Meta */}
-                <div className="flex items-center gap-3 text-xl md:text-2xl font-serif italic text-white/60 mb-12">
+                <div className="flex items-center gap-3 text-xl md:text-2xl font-serif italic text-[#FDFFFF]/60 mb-12">
                     <span>{article.category || "Uncategorized"}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FDFFFF]/30"></span>
                     <span>
                         {new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </span>
@@ -61,8 +61,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {/* Intro Section - Two Column */}
             <section className="max-w-[1400px] mx-auto px-4 md:px-8 mb-20">
                 <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 border-t border-white/10 pt-8">
-                    <div className="font-display text-xl text-zinc-400">Intro</div>
-                    <div className="font-sans text-lg md:text-xl leading-relaxed text-zinc-200 max-w-3xl">
+                    <div className="font-display text-xl text-[#8C8D92]">Intro</div>
+                    <div className="font-sans text-lg md:text-xl leading-relaxed text-[#FDFFFF]/80 max-w-3xl">
                         {article.introBlurb}
                     </div>
                 </div>

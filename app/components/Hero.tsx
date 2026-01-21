@@ -23,17 +23,17 @@ export default function Hero() {
                         {/* Main Title "Akurart Archive" - Full width, centered, single line
                         Calibrated size: roughly 13.5vw fits 15 chars end-to-end
                     */}
-                        <h1 className="font-display text-[14vw] md:text-[13.5vw] leading-[0.75] tracking-tighter text-[#FDFFFF] whitespace-nowrap w-full">
+                        <h1 className="font-display text-[14vw] md:text-[14.5vw] leading-[0.75] tracking-tighter text-[#FDFFFF] whitespace-nowrap w-full">
                             Akurart Archive
                         </h1>
 
                         {/* Cinema Text - Positioned over "rt" of Akurart */}
                         <span
-                            className="absolute top-[5%] md:top-[15%] font-serif italic text-[#9FAC14] text-[4vw] md:text-[4.5vw] pointer-events-none"
+                            className="absolute top-[5%] md:top-[-12%] font-serif italic text-[#9FAC14] text-[4vw] md:text-[5.5vw] pointer-events-none"
                             style={{
                                 zIndex: 10,
                                 transform: 'rotate(-10deg)',
-                                left: '52%', /* Adjusted for center alignment "rt" position */
+                                left: '36%', /* Adjusted for center alignment "rt" position */
                                 transformOrigin: 'left center'
                             }}
                         >

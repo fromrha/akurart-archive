@@ -46,7 +46,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${instrumentSerif.variable} antialiased bg-[#050505] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${instrumentSerif.variable} antialiased bg-[#0F0E0E] text-[#FDFFFF]`}
+        suppressHydrationWarning
       >
         {children}
       </body>
