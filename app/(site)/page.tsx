@@ -1,3 +1,4 @@
+import Marquee from "../components/Marquee";
 import Hero from "../components/Hero";
 import ArticleGrid from "../components/ArticleGrid";
 import CinemaSelects from "../components/CinemaSelects";
@@ -10,11 +11,12 @@ export const revalidate = 60;
 
 export default async function Home() {
   const data = await client.fetch(HOME_PAGE_QUERY);
-  const { featuredArticle, recentArticles, movies } = data;
+  const { recentArticles, movies } = data;
 
   return (
     <main className="min-h-screen bg-[#050505] text-white selection:bg-brand-orange selection:text-white">
-      <Hero featuredArticle={featuredArticle} />
+      <Marquee />
+      <Hero />
       <ArticleGrid articles={recentArticles} />
       <CinemaSelects movies={movies} />
       <SubscriptionCTA />
