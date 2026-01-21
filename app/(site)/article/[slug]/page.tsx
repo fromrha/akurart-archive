@@ -4,10 +4,10 @@ import { PortableText } from "@portabletext/react";
 import { client } from "@/app/sanity/client";
 import { ARTICLE_QUERY } from "@/app/sanity/queries";
 import { notFound } from "next/navigation";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 // Image Builder Helper
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 function urlFor(source: any) {
     return source ? builder.image(source) : null;
 }

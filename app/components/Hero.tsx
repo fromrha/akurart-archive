@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/app/sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 function urlFor(source: any) {
     return source ? builder.image(source) : null;
 }
