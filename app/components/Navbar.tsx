@@ -13,7 +13,7 @@ export default function Navbar() {
                 <img
                     src="/akurart-logo-main.svg"
                     alt="Akurart Archive"
-                    className="h-8 w-auto invert" // Invert provided because typically SVGs are black, but dark mode needs white. Adjust if SVG is already white.
+                    className="h-8 w-auto brightness-0 invert"
                 />
             </Link>
 

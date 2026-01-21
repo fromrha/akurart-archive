@@ -14,8 +14,8 @@ function urlFor(source: any) {
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
     const article = await client.fetch(ARTICLE_QUERY, { slug });
 
     if (!article) {
