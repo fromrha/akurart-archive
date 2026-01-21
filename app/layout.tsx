@@ -30,8 +30,7 @@ export const metadata: Metadata = {
   description: "Media budaya & sinema berbasis narasi.",
 };
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// Imports for Navbar/Footer removed as they are now in (site)/layout.tsx
 
 export default function RootLayout({
   children,
@@ -43,11 +42,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${instrumentSerif.variable} antialiased bg-[#050505] text-white`}
       >
-        <Navbar />
-        <main className="min-h-screen pt-20">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
