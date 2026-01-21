@@ -92,4 +92,4 @@ export default function Hero({ featuredArticle }: HeroProps) {
         </section>
     );
 }
-```
+
