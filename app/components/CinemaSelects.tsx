@@ -36,21 +36,18 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
 
     useGSAP(() => {
         // Initialize quickTo functions
-        xTo.current = gsap.quickTo(previewRef.current, "x", { duration: 0.1, ease: "power3" });
-        yTo.current = gsap.quickTo(previewRef.current, "y", { duration: 0.1, ease: "power3" });
+        // Reduced duration for snappier feel, power2 for natural but quick movement
+        xTo.current = gsap.quickTo(previewRef.current, "x", { duration: 0.05, ease: "power2.out" });
+        yTo.current = gsap.quickTo(previewRef.current, "y", { duration: 0.05, ease: "power2.out" });
     }, { scope: containerRef }); // Scope to container
 
     // Handle Mouse Move
     const handleMouseMove = (e: React.MouseEvent) => {
-        if (!xTo.current || !yTo.current || !containerRef.current) return;
+        if (!xTo.current || !yTo.current) return;
 
-        // Get relative coordinates within the container for better positioning context
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        xTo.current(x);
-        yTo.current(y);
+        // Use viewport coordinates directly since the preview is 'fixed'
+        xTo.current(e.clientX);
+        yTo.current(e.clientY);
     };
 
     // Handle Entry/Exit Animation
