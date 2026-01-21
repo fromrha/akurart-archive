@@ -1,6 +1,7 @@
 
 import { groq } from "next-sanity";
 
+// Query for the Homepage
 export const HOME_PAGE_QUERY = groq`{
   "featuredArticle": *[_type == "article" && featured == true][0]{
     _id,
@@ -30,6 +31,8 @@ export const HOME_PAGE_QUERY = groq`{
   }
 }`;
 
+// Query for the Article Detail Page
+// Requires $slug parameter
 export const ARTICLE_QUERY = groq`*[_type == "article" && slug.current == $slug][0]{
   _id,
   title,
