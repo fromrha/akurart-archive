@@ -39,7 +39,7 @@ export default function ArticleGrid({ articles = [] }: { articles?: Article[] })
             <div className="mt-[10px] w-full">
                 <Link
                     href="/archive"
-                    className="flex items-center justify-center w-full bg-[#FDFFFF] py-8 rounded-2xl transition-transform duration-300 hover:scale-[1.005] active:scale-[0.995]"
+                    className="flex items-center justify-center w-full bg-[#FDFFFF] py-8 rounded-2xl transition-all duration-300 hover:bg-[#FF5700] hover:scale-[1.005] active:scale-[0.995]"
                 >
                     <span className="font-serif italic text-4xl md:text-5xl text-[#0F0E0E]">
                         Baca lain nya
