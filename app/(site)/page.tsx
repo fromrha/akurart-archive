@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ArticleCard from "../components/ArticleCard";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
@@ -7,37 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center text-center max-w-4xl mx-auto">
 
         {/* Hero Text */}
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter uppercase">
-          Jadikan senja gurau <br />
-          sebagai motivasi hidup
-        </h1>
-
-        <div className="flex items-center gap-4 text-xl md:text-2xl font-serif italic text-white/60">
-          <span>Lagu</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
-          <span>January 18, 2026</span>
-        </div>
-
-        {/* Hero Image Placeholder - To be replaced by CMS content */}
-        <div className="w-full aspect-video relative mt-8 rounded-lg overflow-hidden bg-white/5 border border-white/10 group cursor-pointer">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-          <div className="absolute inset-0 flex items-center justify-center text-white/20 group-hover:text-white/40 transition-colors z-0">
-            {/* Placeholder until we have the hero image */}
-            <div className="text-center">
-              <span className="block font-display text-6xl opacity-20">HERO</span>
-            </div>
-          </div>
-
-          <div className="absolute bottom-8 left-8 right-8 z-20 text-left">
-            <div className="inline-block px-3 py-1 bg-brand-orange/20 text-brand-orange border border-brand-orange/30 rounded-full text-sm font-medium mb-3 backdrop-blur-md">
-              Featured
-            </div>
-            <h2 className="font-display text-3xl md:text-5xl leading-tight">Bersenja Gurau - Raim Laode</h2>
-            <p className="font-serif italic text-white/70 mt-2 max-w-xl text-lg">
-              Dalam lanskap musik Indonesia kontemporer, karya-karya Raim Laode menempati ruang yang unik...
-            </p>
-          </div>
-        </div>
+        <Hero />
 
       </main>
 

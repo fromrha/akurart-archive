@@ -5,9 +5,11 @@ export default function Footer() {
 
                 {/* Brand Column */}
                 <div className="flex flex-col gap-4 max-w-sm">
-                    <h2 className="font-display text-2xl font-bold tracking-tight text-white">
-                        Akurart<span className="font-serif italic font-normal ml-1">Archive</span>
-                    </h2>
+                    <img
+                        src="/akurart-logo-main.svg"
+                        alt="Akurart Archive"
+                        className="h-10 w-auto invert self-start"
+                    />
                     <p className="text-zinc-400 font-serif italic">
                         Media budaya & sinema berbasis narasi, refleksi, dan pengalaman manusia.
                     </p>

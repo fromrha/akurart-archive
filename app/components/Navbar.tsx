@@ -9,11 +9,13 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm">
             {/* Logo Area */}
-            <div className="flex items-center gap-2">
-                <div className="font-display text-2xl font-bold tracking-tight">
-                    Akurart<span className="font-serif italic font-normal ml-1">Archive</span>
-                </div>
-            </div>
+            <Link href="/" className="flex items-center gap-2">
+                <img
+                    src="/akurart-logo-main.svg"
+                    alt="Akurart Archive"
+                    className="h-8 w-auto invert" // Invert provided because typically SVGs are black, but dark mode needs white. Adjust if SVG is already white.
+                />
+            </Link>
 
             {/* Navigation Pills */}
             <div className="flex items-center gap-2">

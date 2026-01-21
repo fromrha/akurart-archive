@@ -26,8 +26,14 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Akurart Archive",
+  title: {
+    template: "%s | Akurart Archive",
+    default: "Akurart Archive",
+  },
   description: "Media budaya & sinema berbasis narasi.",
+  icons: {
+    icon: "/akurart-logotype-main.svg",
+  },
 };
 
 // Imports for Navbar/Footer removed as they are now in (site)/layout.tsx
