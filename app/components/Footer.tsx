@@ -1,39 +1,64 @@
+
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Footer() {
     return (
-        <footer className="w-full border-t border-white/10 bg-black py-12 mt-20">
-            <div className="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
+        <footer className="w-full bg-[#050505] text-white py-12 md:py-20 border-t border-white/10">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
-                {/* Brand Column */}
-                <div className="flex flex-col gap-4 max-w-sm">
-                    <img
-                        src="/akurart-logo-main.svg"
-                        alt="Akurart Archive"
-                        className="h-10 w-auto invert self-start"
-                    />
-                    <p className="text-zinc-400 font-serif italic">
-                        Media budaya & sinema berbasis narasi, refleksi, dan pengalaman manusia.
-                    </p>
-                    <div className="text-sm text-zinc-600 mt-4">
-                        &copy; {new Date().getFullYear()} Akurart Archive. All rights reserved.
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+
+                    {/* Left Column: Brand (Large) */}
+                    <div className="flex flex-col gap-2 max-w-md">
+                        <div className="relative">
+                            {/* Similar logic to Hero for consistency if desired, or simpler */}
+                            <span className="absolute -top-4 left-10 font-serif italic text-brand-orange text-2xl z-10">
+                                Cinema
+                            </span>
+                            <h2 className="font-display text-6xl md:text-8xl tracking-tighter leading-none">
+                                Akurart<br />Archive
+                            </h2>
+                        </div>
+                        <div className="mt-8 text-xs text-zinc-500 max-w-xs">
+                            &copy; 2026 Akurart Cinema<br />
+                            We adhere the rules, and break the limit.
+                        </div>
                     </div>
+
+                    {/* Mobile/Tab Centered Layout might need adjustment. 
+               The design shows:
+               Desktop: Left (Brand), Right (Links)
+               Mobile: Center Stack
+            */}
+
+                    {/* Right Column: Links */}
+                    <div className="flex flex-row gap-16 md:gap-24 w-full md:w-auto justify-between md:justify-end">
+
+                        {/* Site Links */}
+                        <div className="flex flex-col gap-4 text-center md:text-right">
+                            <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-center md:self-end mb-2">
+                                Links
+                            </div>
+                            <Link href="/" className="hover:text-brand-orange transition-colors underline-offset-4 hover:underline">Home</Link>
+                            <Link href="/archive" className="hover:text-brand-green transition-colors underline-offset-4 hover:underline">Archive</Link>
+                            <Link href="/about" className="hover:text-brand-blue transition-colors underline-offset-4 hover:underline">About</Link>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="flex flex-col gap-4 text-center md:text-right">
+                            <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-center md:self-end mb-2">
+                                Connect
+                            </div>
+                            <a href="#" className="hover:text-white text-zinc-400 transition-colors">Instagram</a>
+                            <a href="#" className="hover:text-white text-zinc-400 transition-colors">Threads</a>
+                            <a href="#" className="hover:text-white text-zinc-400 transition-colors">YouTube</a>
+                            <a href="#" className="hover:text-white text-zinc-400 transition-colors">Email</a>
+                        </div>
+                    </div>
+
                 </div>
 
-                {/* Links Column */}
-                <div className="flex gap-12">
-                    <div className="flex flex-col gap-3">
-                        <h3 className="font-display text-lg text-white">Menu</h3>
-                        <a href="/" className="text-zinc-400 hover:text-brand-orange transition-colors">Halaman Utama</a>
-                        <a href="/archive" className="text-zinc-400 hover:text-brand-green transition-colors">Arsip</a>
-                        <a href="/about" className="text-zinc-400 hover:text-brand-blue transition-colors">Tentang Kami</a>
-                    </div>
-
-                    <div className="flex flex-col gap-3">
-                        <h3 className="font-display text-lg text-white">Sosial</h3>
-                        <a href="#" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
-                        <a href="#" className="text-zinc-400 hover:text-white transition-colors">Twitter</a>
-                        <a href="#" className="text-zinc-400 hover:text-white transition-colors">Email</a>
-                    </div>
-                </div>
             </div>
         </footer>
     );

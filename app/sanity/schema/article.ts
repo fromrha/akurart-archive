@@ -34,9 +34,19 @@ export default defineType({
             to: { type: 'author' },
         }),
         defineField({
+            name: 'bannerImage',
+            title: 'Banner Image',
+            type: 'image',
+            description: 'Wide image used for the hero section or top of the article.',
+            options: {
+                hotspot: true,
+            },
+        }),
+        defineField({
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
+            description: 'Thumbnail image for cards and lists.',
             options: {
                 hotspot: true,
             },

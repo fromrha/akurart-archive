@@ -1,51 +1,82 @@
 import Link from "next/link";
 import Image from "next/image";
+import { client } from "@/app/sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-export default function Hero() {
+const builder = imageUrlBuilder(client);
+function urlFor(source: any) {
+    return source ? builder.image(source) : null;
+}
+
+interface HeroProps {
+    featuredArticle?: {
+        title: string;
+        category: string;
+        publishedAt: string;
+        bannerImage: any;
+        slug: { current: string };
+    }
+}
+
+export default function Hero({ featuredArticle }: HeroProps) {
     return (
-        <section className="flex flex-col gap-8 items-center text-center max-w-5xl mx-auto w-full pt-12 md:pt-20">
+        <section className="relative w-full h-screen flex flex-col justify-end pb-12 px-4 md:px-8 overflow-hidden">
 
-            {/* Main Headline */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter uppercase max-w-4xl">
-                Jadikan senja gurau <br />
-                sebagai motivasi hidup
-            </h1>
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                {featuredArticle?.bannerImage ? (
+                    <Image
+                        src={urlFor(featuredArticle.bannerImage)?.url() || "/akurart-archive-hero.webp"}
+                        alt={featuredArticle.title || "Hero"}
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                ) : (
+                    <Image
+                        src="/akurart-archive-hero.webp"
+                        alt="Default Hero"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                )}
 
-            {/* Meta Info */}
-            <div className="flex items-center gap-4 text-xl md:text-2xl font-serif italic text-white/60">
-                <span>Lagu</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
-                <span>January 18, 2026</span>
+                {/* Dark Overlay for text readability */}
+                <div className="absolute inset-0 bg-black/40"></div>
             </div>
 
-            {/* Hero Image / Featured Article Card */}
-            <div className="w-full aspect-video relative mt-8 rounded-xl overflow-hidden bg-white/5 border border-white/10 group cursor-pointer shadow-2xl shadow-black/50">
+            {/* Top Navbar Placeholder (Visual only, actual Navbar is fixed) */}
+            {/* We rely on the global Navbar being sticky/fixed on top */}
 
-                {/* Background Image */}
-                <Image
-                    src="/akurart-archive-hero.webp"
-                    alt="Hero Image"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority /* Critical image for LCP */
-                />
+            {/* Content */}
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto flex flex-col items-start">
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-70 transition-opacity duration-500"></div>
+                {/* Absolute Position "Cinema" Text */}
+                <div className="relative">
+                    <span className="absolute -top-6 left-1/4 transform -translate-x-1/2 font-serif italic text-[#CFFF04] text-4xl md:text-6xl z-20 mix-blend-difference">
+                        Cinema
+                    </span>
 
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 text-left flex flex-col items-start gap-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="inline-block px-3 py-1 bg-brand-orange text-white border border-brand-orange/30 rounded-full text-sm font-medium backdrop-blur-md shadow-lg shadow-brand-orange/20">
-                        Featured
-                    </div>
+                    {/* Main Title "Akurart Archive" */}
+                    {/* Using a massive font size to match the reference */}
+                    <h1 className="font-display text-[15vw] leading-[0.8] tracking-tighter text-white uppercase break-all md:break-normal">
+                        Akurart <br className="md:hidden" /> Archive
+                    </h1>
+                </div>
 
-                    <h2 className="font-display text-4xl md:text-6xl leading-tight drop-shadow-lg">
-                        Bersenja Gurau - Raim Laode
-                    </h2>
-
-                    <p className="font-serif italic text-white/80 max-w-2xl text-lg md:text-xl line-clamp-2 md:line-clamp-none drop-shadow-md">
-                        Dalam lanskap musik Indonesia kontemporer, karya-karya Raim Laode menempati ruang yang unik, menggabungkan lirik puitis dengan melodi yang menghanyutkan.
+                {/* Subtext tagline aligned with bottom or absolute as needed */}
+                <div className="absolute top-0 right-0 hidden md:block max-w-sm text-right">
+                    <p className="font-serif italic text-white/80 text-sm md:text-base">
+                        Media budaya & sinema berbasis narasi, refleksi, dan pengalaman manusia.
                     </p>
+                    {featuredArticle && (
+                        <div className="mt-4 p-4 bg-white/10 backdrop-blur-md rounded-lg text-left border border-white/20">
+                            <div className="text-xs uppercase tracking-widest text-[#CFFF04] mb-1">Featured</div>
+                            <div className="font-display text-xl leading-tight mb-2">{featuredArticle.title}</div>
+                            <Link href={`/article/${featuredArticle.slug?.current}`} className="text-sm underline underline-offset-4 hover:text-[#CFFF04]">Read Now</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
