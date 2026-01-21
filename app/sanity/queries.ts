@@ -28,7 +28,8 @@ export const HOME_PAGE_QUERY = groq`{
     title,
     year,
     mood,
-    whyWatch
+    whyWatch,
+    poster
   }
 }`;
 
