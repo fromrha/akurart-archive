@@ -1,59 +1,85 @@
 
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#0F0E0E] text-[#FDFFFF] py-12 md:py-20 border-t border-white/10">
+        <footer className="w-full bg-[#0F0E0E] text-[#FDFFFF] pt-20 pb-12 md:pb-20">
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+                <div className="flex flex-col">
 
-                    {/* Left Column: Brand (Large) */}
-                    <div className="flex flex-col gap-2 max-w-md">
-                        <div className="relative">
-                            {/* Cinema text consistent with Hero color */}
-                            <span className="absolute -top-4 left-10 font-serif italic text-[#9FAC14] text-2xl z-10">
+                    {/* Top Section: Logo & Links */}
+                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start gap-12">
+
+                        {/* Brand Logo Section */}
+                        <div className="relative group w-full lg:w-auto mb-12 lg:mb-0">
+                            {/* Cinema - Placed on 'rt' of Akurart */}
+                            <span
+                                className="absolute font-serif italic text-[#9FAC14] z-20 pointer-events-none whitespace-nowrap
+                                /* Mobile positioning (Over single line) */
+                                left-[140px] top-[-10px] text-[32px]
+                                /* Tablet positioning (Over single line) */
+                                md:left-[180px] md:top-[-15px] md:text-[50px]
+                                /* Desktop positioning (Over stacked 'rt') */
+                                lg:left-[390px] lg:top-[50px] lg:text-[70px]
+                                "
+                                style={{ transform: 'rotate(-10deg)' }}
+                            >
                                 Cinema
                             </span>
-                            <h2 className="font-display text-6xl md:text-8xl tracking-tighter leading-none">
-                                Akurart<br />Archive
+
+                            {/* Brand Name - Stacked on Desktop, Single Line on Mobile/Tab */}
+                            <h2 className="font-display leading-[0.8] tracking-tighter flex flex-col md:flex-row lg:flex-col items-start gap-x-6">
+                                {/* Akurart */}
+                                <span className="text-[18vw] sm:text-[15vw] md:text-[90px] lg:text-[158px] uppercase">
+                                    Akurart
+                                </span>
+                                {/* Archive */}
+                                <span className="text-[22vw] sm:text-[18vw] md:text-[110px] lg:text-[200px] uppercase">
+                                    Archive
+                                </span>
                             </h2>
                         </div>
-                        <div className="mt-8 text-xs text-[#8C8D92] max-w-xs">
-                            &copy; 2026 Akurart Cinema<br />
-                            We adhere the rules, and break the limit.
+
+                        {/* Right Content: Links & Copyright (Desktop) */}
+                        <div className="flex flex-col items-end w-full lg:w-auto gap-8">
+                            {/* Navigation Links */}
+                            <div className="flex flex-row gap-12 sm:gap-16 md:gap-24 w-full justify-between md:justify-end">
+                                {/* Site Links */}
+                                <div className="flex flex-col gap-3 text-left md:text-right">
+                                    <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-start md:self-end mb-2">
+                                        Links
+                                    </div>
+                                    <Link href="/" className="text-lg md:text-xl hover:text-[#FF5700] transition-colors leading-none">Home</Link>
+                                    <Link href="/archive" className="text-lg md:text-xl hover:text-[#32CE57] transition-colors leading-none">Archive</Link>
+                                    <Link href="/about" className="text-lg md:text-xl hover:text-[#A3CAFF] transition-colors leading-none">About</Link>
+                                </div>
+
+                                {/* Social Links */}
+                                <div className="flex flex-col gap-3 text-left md:text-right">
+                                    <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-start md:self-end mb-2">
+                                        Connect
+                                    </div>
+                                    <a href="#" className="text-lg md:text-xl hover:text-[#FDFFFF] text-[#8C8D92] transition-colors leading-none">Instagram</a>
+                                    <a href="#" className="text-lg md:text-xl hover:text-[#FDFFFF] text-[#8C8D92] transition-colors leading-none">Threads</a>
+                                    <a href="#" className="text-lg md:text-xl hover:text-[#FDFFFF] text-[#8C8D92] transition-colors leading-none">YouTube</a>
+                                    <a href="#" className="text-lg md:text-xl hover:text-[#FDFFFF] text-[#8C8D92] transition-colors leading-none">Email</a>
+                                </div>
+                            </div>
+
+                            {/* Desktop Copyright Position */}
+                            <div className="hidden lg:block text-right text-sm text-[#8C8D92] font-sans leading-relaxed mt-4">
+                                <div>© 2026 Akurart Cinema.</div>
+                                <div>We adhere the rules, and break the limit.</div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Mobile/Tab Centered Layout might need adjustment. 
-               The design shows:
-               Desktop: Left (Brand), Right (Links)
-               Mobile: Center Stack
-            */}
-
-                    {/* Right Column: Links */}
-                    <div className="flex flex-row gap-16 md:gap-24 w-full md:w-auto justify-between md:justify-end">
-
-                        {/* Site Links */}
-                        <div className="flex flex-col gap-4 text-center md:text-right">
-                            <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-center md:self-end mb-2">
-                                Links
-                            </div>
-                            <Link href="/" className="hover:text-[#FF5700] transition-colors underline-offset-4 hover:underline">Home</Link>
-                            <Link href="/archive" className="hover:text-[#32CE57] transition-colors underline-offset-4 hover:underline">Archive</Link>
-                            <Link href="/about" className="hover:text-[#A3CAFF] transition-colors underline-offset-4 hover:underline">About</Link>
-                        </div>
-
-                        {/* Social Links */}
-                        <div className="flex flex-col gap-4 text-center md:text-right">
-                            <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-center md:self-end mb-2">
-                                Connect
-                            </div>
-                            <a href="#" className="hover:text-[#FDFFFF] text-[#8C8D92] transition-colors">Instagram</a>
-                            <a href="#" className="hover:text-[#FDFFFF] text-[#8C8D92] transition-colors">Threads</a>
-                            <a href="#" className="hover:text-[#FDFFFF] text-[#8C8D92] transition-colors">YouTube</a>
-                            <a href="#" className="hover:text-[#FDFFFF] text-[#8C8D92] transition-colors">Email</a>
+                    {/* Tablet/Mobile Footer Line & Copyright */}
+                    <div className="lg:hidden w-full border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 text-[#8C8D92]">
+                        <div className="text-xs sm:text-sm font-sans leading-relaxed">
+                            <span className="block">© 2026 Akurart Cinema.</span>
+                            <span className="block">We adhere the rules, and break the limit.</span>
                         </div>
                     </div>
 
