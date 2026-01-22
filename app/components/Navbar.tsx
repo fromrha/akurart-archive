@@ -36,7 +36,7 @@ export default function Navbar() {
                 md:absolute md:bg-transparent md:flex-row md:justify-between md:px-6 md:py-4 md:gap-0
                 
                 /* Sticky State (Optional: applies to both but mostly relevant for desktop overlay behavior) */
-                ${isScrolled ? 'md:fixed md:top-0 md:bg-[#0F0E0E]/90 md:backdrop-blur-md' : 'md:top-0 md:top-[54px]'}
+                ${isScrolled ? 'md:fixed md:top-0 md:bg-[#0F0E0E]/90' : 'md:top-0 md:top-[54px]'}
             `}
         >
             {/* Desktop Logo */}
