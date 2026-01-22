@@ -2,6 +2,7 @@
 
 import { Geist, Geist_Mono, Tilt_Warp, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import Preloader from "./components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${instrumentSerif.variable} antialiased bg-[#0F0E0E] text-[#FDFFFF]`}
         suppressHydrationWarning
       >
+        <Preloader />
         {children}
       </body>
     </html>
