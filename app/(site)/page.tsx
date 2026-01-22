@@ -1,4 +1,3 @@
-import Marquee from "../components/Marquee";
 import Hero from "../components/Hero";
 import ArticleGrid from "../components/ArticleGrid";
 import CinemaSelects from "../components/CinemaSelects";
