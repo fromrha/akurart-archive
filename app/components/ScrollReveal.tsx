@@ -75,7 +75,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       {
         ease: 'none',
         opacity: 1,
-        stagger: 0.05,
+        stagger: 3,
         scrollTrigger: {
           trigger: el,
           scroller,
@@ -118,4 +118,5 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 };
 
 export default ScrollReveal;
+
 
