@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Tilt_Warp, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,18 +40,31 @@ export const metadata: Metadata = {
 
 // Imports for Navbar/Footer removed as they are now in (site)/layout.tsx
 
+gsap.registerPlugin(ScrollSmoother);
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 1.5,
+      effects: true,
+    });
+  }, []);
+
   return (
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${instrumentSerif.variable} antialiased bg-[#0F0E0E] text-[#FDFFFF]`}
         suppressHydrationWarning
       >
-        {children}
+        <div id="smooth-wrapper">
+          <div id="smooth-content">{children}</div>
+        </div>
       </body>
     </html>
   );
