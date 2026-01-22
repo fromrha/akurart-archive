@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SmoothScrollWrapper from "../components/SmoothScrollWrapper";
 
 export default function SiteLayout({
     children,
@@ -9,10 +10,12 @@ export default function SiteLayout({
     return (
         <>
             <Navbar />
-            <main className="min-h-screen">
-                {children}
-            </main>
-            <Footer />
+            <SmoothScrollWrapper>
+                <main className="min-h-screen">
+                    {children}
+                </main>
+                <Footer />
+            </SmoothScrollWrapper>
         </>
     );
 }

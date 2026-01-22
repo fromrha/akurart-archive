@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -27,6 +28,7 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
 
     // State & Refs for Cursor Tracking
     const [hoveredMovie, setHoveredMovie] = useState<Movie | null>(null);
+    const [mounted, setMounted] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const previewRef = useRef<HTMLDivElement>(null);
 
@@ -34,12 +36,19 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
     const xTo = useRef<any>(null);
     const yTo = useRef<any>(null);
 
+    // Ensure we are mounted before using document.body
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     useGSAP(() => {
+        if (!previewRef.current) return;
+
         // Initialize quickTo functions
         // Reduced duration for snappier feel, power2 for natural but quick movement
         xTo.current = gsap.quickTo(previewRef.current, "x", { duration: 0.05, ease: "power2.out" });
         yTo.current = gsap.quickTo(previewRef.current, "y", { duration: 0.05, ease: "power2.out" });
-    }, { scope: containerRef }); // Scope to container
+    }, { scope: containerRef, dependencies: [mounted] }); // Scope to container, re-run on mount
 
     // Handle Mouse Move
     const handleMouseMove = (e: React.MouseEvent) => {
@@ -53,12 +62,16 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
     // Handle Entry/Exit Animation
     const handleMouseEnterRow = (movie: Movie) => {
         setHoveredMovie(movie);
-        gsap.to(previewRef.current, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.7)" });
+        if (previewRef.current) {
+            gsap.to(previewRef.current, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.7)" });
+        }
     };
 
     const handleMouseLeaveRow = () => {
         setHoveredMovie(null);
-        gsap.to(previewRef.current, { scale: 0, opacity: 0, duration: 0.15 });
+        if (previewRef.current) {
+            gsap.to(previewRef.current, { scale: 0, opacity: 0, duration: 0.15 });
+        }
     };
 
     if (!displayMovies || displayMovies.length === 0) return null;
@@ -71,7 +84,9 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
                     setHoveredMovie(null);
-                    gsap.to(previewRef.current, { scale: 0, opacity: 0, duration: 0.15 });
+                    if (previewRef.current) {
+                        gsap.to(previewRef.current, { scale: 0, opacity: 0, duration: 0.15 });
+                    }
                 }}
                 className="relative w-full bg-[#FDFFFF] rounded-2xl md:rounded-3xl px-4 py-12 md:px-12 md:py-24 overflow-hidden"
             >
@@ -117,28 +132,31 @@ export default function CinemaSelects({ movies = [] }: { movies?: Movie[] }) {
                     </table>
                 </div>
 
-                {/* Floating Preview Image */}
-                <div
-                    ref={previewRef}
-                    className="fixed top-0 left-0 w-[200px] h-[300px] pointer-events-none z-50 origin-center opacity-0 scale-0"
-                    style={{
-                        // Start centered on cursor but slightly offset
-                        marginTop: -150,
-                        marginLeft: 20
-                    }}
-                >
-                    {hoveredMovie?.poster && (
-                        <div className="relative w-full h-full overflow-hidden bg-gray-200">
-                            <Image
-                                src={urlFor(hoveredMovie.poster)?.width(400).url() || ""}
-                                alt={hoveredMovie.title}
-                                fill
-                                unoptimized
-                                className="object-cover"
-                            />
-                        </div>
-                    )}
-                </div>
+                {/* Floating Preview Image - Portaled to Body to escape overflow/transforms */}
+                {mounted && createPortal(
+                    <div
+                        ref={previewRef}
+                        className="fixed top-0 left-0 w-[200px] h-[300px] pointer-events-none z-50 origin-center opacity-0 scale-0"
+                        style={{
+                            // Start centered on cursor but slightly offset
+                            marginTop: -150,
+                            marginLeft: 20
+                        }}
+                    >
+                        {hoveredMovie?.poster && (
+                            <div className="relative w-full h-full overflow-hidden bg-gray-200">
+                                <Image
+                                    src={urlFor(hoveredMovie.poster)?.width(400).url() || ""}
+                                    alt={hoveredMovie.title}
+                                    fill
+                                    unoptimized
+                                    className="object-cover"
+                                />
+                            </div>
+                        )}
+                    </div>,
+                    document.body
+                )}
             </div>
         </section>
     );
