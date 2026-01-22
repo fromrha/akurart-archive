@@ -21,7 +21,7 @@ export default function Footer() {
                                 /* Tablet positioning (Over single line) */
                                 md:left-[180px] md:top-[-15px] md:text-[50px]
                                 /* Desktop positioning (Over stacked 'rt') */
-                                lg:left-[390px] lg:top-[50px] lg:text-[70px]
+                                lg:left-[390px] lg:top-[-25px] lg:text-[70px]
                                 "
                                 style={{ transform: 'rotate(-10deg)' }}
                             >
@@ -31,11 +31,11 @@ export default function Footer() {
                             {/* Brand Name - Stacked on Desktop, Single Line on Mobile/Tab */}
                             <h2 className="font-display leading-[0.8] tracking-tighter flex flex-col md:flex-row lg:flex-col items-start gap-x-6">
                                 {/* Akurart */}
-                                <span className="text-[18vw] sm:text-[15vw] md:text-[90px] lg:text-[158px] uppercase">
+                                <span className="text-[18vw] sm:text-[15vw] md:text-[90px] lg:text-[158px]">
                                     Akurart
                                 </span>
                                 {/* Archive */}
-                                <span className="text-[22vw] sm:text-[18vw] md:text-[110px] lg:text-[200px] uppercase">
+                                <span className="text-[22vw] sm:text-[18vw] md:text-[110px] lg:text-[200px]">
                                     Archive
                                 </span>
                             </h2>
