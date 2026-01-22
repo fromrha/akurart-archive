@@ -1,3 +1,4 @@
+import Marquee from "../components/Marquee";
 import Hero from "../components/Hero";
 import ArticleGrid from "../components/ArticleGrid";
 import CinemaSelects from "../components/CinemaSelects";
@@ -22,6 +23,9 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#0F0E0E] text-[#FDFFFF] selection:bg-[#FF5700] selection:text-[#0F0E0E]">
+      <div className="hidden md:block">
+        <Marquee />
+      </div>
       <Hero />
       <ArticleGrid articles={recentArticles} />
       <CinemaSelects movies={movies} />
