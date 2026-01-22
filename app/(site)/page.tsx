@@ -10,8 +10,16 @@ import { HOME_PAGE_QUERY } from "@/app/sanity/queries";
 export const revalidate = 60;
 
 export default async function Home() {
-  const data = await client.fetch(HOME_PAGE_QUERY);
-  const { recentArticles, movies } = data;
+  let data = { recentArticles: [], movies: [] };
+
+  try {
+    data = await client.fetch(HOME_PAGE_QUERY);
+  } catch (error) {
+    console.error("Failed to fetch data from Sanity:", error);
+    // You could also redirect to a dedicated error page or show a toast
+  }
+
+  const { recentArticles = [], movies = [] } = data;
 
   return (
     <main className="min-h-screen bg-[#0F0E0E] text-[#FDFFFF] selection:bg-[#FF5700] selection:text-[#0F0E0E]">

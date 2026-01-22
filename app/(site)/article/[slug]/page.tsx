@@ -16,7 +16,13 @@ export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const article = await client.fetch(ARTICLE_QUERY, { slug });
+    let article = null;
+
+    try {
+        article = await client.fetch(ARTICLE_QUERY, { slug });
+    } catch (error) {
+        console.error("Failed to fetch article from Sanity:", error);
+    }
 
     if (!article) {
         notFound();
