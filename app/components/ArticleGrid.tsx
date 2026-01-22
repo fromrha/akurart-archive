@@ -19,9 +19,9 @@ interface Article {
     introBlurb?: string;
 }
 
-export default function ArticleGrid({ articles = [] }: { articles?: Article[] }) {
-    // Show exactly 4 items
-    const displayArticles = articles.slice(0, 4);
+export default function ArticleGrid({ articles = [], showAll = false }: { articles?: Article[], showAll?: boolean }) {
+    // Show exactly 4 items or all if showAll
+    const displayArticles = showAll ? articles : articles.slice(0, 4);
 
     if (!displayArticles || displayArticles.length === 0) {
         return null;
@@ -35,17 +35,19 @@ export default function ArticleGrid({ articles = [] }: { articles?: Article[] })
                 ))}
             </div>
 
-            {/* "Baca lain nya" Bottom Button */}
-            <div className="mt-[10px] w-full">
-                <Link
-                    href="/archive"
-                    className="flex items-center justify-center w-full bg-[#FDFFFF] py-8 rounded-2xl transition-all duration-300 hover:bg-[#FF5700] hover:scale-[1.005] active:scale-[0.995]"
-                >
-                    <span className="font-serif italic text-4xl md:text-5xl text-[#0F0E0E]">
-                        Baca lain nya
-                    </span>
-                </Link>
-            </div>
+            {/* "Baca lain nya" Bottom Button - only show if not showAll */}
+            {!showAll && (
+                <div className="mt-[10px] w-full">
+                    <Link
+                        href="/archive"
+                        className="flex items-center justify-center w-full bg-[#FDFFFF] py-8 rounded-2xl transition-all duration-300 hover:bg-[#FF5700] hover:scale-[1.005] active:scale-[0.995]"
+                    >
+                        <span className="font-serif italic text-4xl md:text-5xl text-[#0F0E0E]">
+                            Baca lain nya
+                        </span>
+                    </Link>
+                </div>
+            )}
         </section>
     );
 }

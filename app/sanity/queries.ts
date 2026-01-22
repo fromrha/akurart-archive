@@ -46,3 +46,15 @@ export const ARTICLE_QUERY = groq`*[_type == "article" && slug.current == $slug]
   "category": categories[0]->title,
   "author": author->{name, image}
 }`;
+
+// Query for all articles on Archive page
+export const ALL_ARTICLES_QUERY = groq`*[_type == "article"] | order(publishedAt desc, _createdAt desc){
+  _id,
+  title,
+  slug,
+  introBlurb,
+  publishedAt,
+  _createdAt,
+  mainImage,
+  "category": categories[0]->title
+}`;
