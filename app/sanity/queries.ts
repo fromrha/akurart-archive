@@ -58,3 +58,12 @@ export const ALL_ARTICLES_QUERY = groq`*[_type == "article"] | order(publishedAt
   mainImage,
   "category": categories[0]->title
 }`;
+
+// Query for About Page
+export const ABOUT_PAGE_QUERY = groq`*[_type == "aboutPage"][0]{
+  title,
+  galleryImages,
+  sectionTitle,
+  description
+}`;
+
