@@ -26,7 +26,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   baseOpacity = 0.1,
   baseRotation = 3,
   blurStrength = 4,
-  containerClassName = '',
+  containerClassName = 'my-5',
   textClassName = '',
   rotationEnd = 'bottom bottom',
   wordAnimationEnd = 'bottom bottom'
@@ -75,7 +75,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       {
         ease: 'none',
         opacity: 1,
-        stagger: 3,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: el,
           scroller,
@@ -104,14 +104,13 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         }
       );
     }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+    <h2 ref={containerRef} className={`${containerClassName}`}>
       <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
     </h2>
   );

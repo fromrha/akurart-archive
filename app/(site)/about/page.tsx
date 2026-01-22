@@ -46,12 +46,12 @@ export default async function About() {
                 </div>
                 <div className="w-full md:w-3/4">
                     <ScrollReveal
-                        baseOpacity={0.2}
+                        baseOpacity={0}
                         enableBlur
                         baseRotation={0}
                         blurStrength={3}
                         containerClassName="my-0"
-                        textClassName="font-sans font-medium text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
+                        textClassName="font-geist-sans text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
                     >
                         {description}
                     </ScrollReveal>
