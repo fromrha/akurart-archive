@@ -34,8 +34,8 @@ export default function SubscriptionCTA() {
                     <h2 className="font-serif italic text-4xl md:text-7xl text-[#0F0E0E] drop-shadow-sm max-w-4xl tracking-tight leading-[1]">
                         Tertarik dengan review kami?
                     </h2>
-                    <p className="font-sans text-[#0F0E0E]/80 text-lg md:text-xl max-w-xl">
-                        Berlangganan untuk mendapatkan review lagu-lagu indah lainnya.
+                    <p className="font-sans text-[#0F0E0E]/80 text-lg md:text-xl max-w-2xl">
+                        Berlangganan untuk mendapatkan konten-konten menarik lainnya.
                     </p>
 
                     <button className="bg-[#0F0E0E] text-[#FDFFFF] px-10 py-4 text-xl font-medium hover:scale-105 transition-transform duration-200 shadow-xl shadow-black/20 mt-4">
