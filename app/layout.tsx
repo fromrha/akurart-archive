@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Tilt_Warp, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
@@ -27,7 +26,7 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: {
     template: "%s | Akurart Archive",
     default: "Akurart Archive",
@@ -41,6 +40,8 @@ export const metadata: Metadata = {
 // Imports for Navbar/Footer removed as they are now in (site)/layout.tsx
 
 gsap.registerPlugin(ScrollSmoother);
+
+"use client";
 
 export default function RootLayout({
   children,
