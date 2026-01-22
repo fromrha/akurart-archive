@@ -10,7 +10,6 @@ export default function SubscriptionCTA() {
                     alt="Background Rocks"
                     fill
                     className="object-cover"
-                    quality={100}
                 />
                 {/* Gradient overlays to blend with #0F0E0E */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0F0E0E] via-transparent to-[#0F0E0E]" />
