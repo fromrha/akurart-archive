@@ -23,7 +23,6 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#0F0E0E] text-[#FDFFFF] selection:bg-[#FF5700] selection:text-[#0F0E0E]">
-      <Marquee />
       <Hero />
       <ArticleGrid articles={recentArticles} />
       <CinemaSelects movies={movies} />

@@ -30,26 +30,22 @@ export default function Navbar() {
         <nav
             className={`
                 ${isScrolled ? 'fixed top-0' : 'absolute'} 
-                ${!isScrolled && isHome ? 'top-[54px]' : 'top-0'} 
-                left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 bg-transparent transition-all
+                ${!isScrolled && isHome ? 'top-0' : 'top-0'} 
+                left-0 right-0 z-[100] flex flex-col items-center px-4 py-6 bg-transparent transition-all gap-4
             `}
         >
-            {/* Logo Area */}
-            <Link href="/" className="flex items-center gap-2">
-                <img
-                    src="/akurart-logo-main.svg"
-                    alt="Akurart Archive"
-                    className="h-8 md:h-12 w-auto brightness-0 invert"
-                />
-            </Link>
+            {/* Brand Description Text */}
+            <p className="text-center text-[#8C8D92] text-[15px] md:text-[18px] font-sans font-bold leading-tight max-w-[90%] md:max-w-xl">
+                Media budaya & sinema berbasis narasi,<br className="md:hidden" /> refleksi, dan pengalaman manusia.
+            </p>
 
             {/* Navigation Pills */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2 w-full px-2">
                 <NavButton
                     href="/"
-                    label="Halaman Utama"
+                    label="Home"
                     colorClass="bg-[#FF5700] text-[#0F0E0E]"
-                    borderRadius=""
+                    borderRadius="rounded-md"
                     isActive={pathname === "/"}
                 />
                 <NavButton
@@ -61,7 +57,7 @@ export default function Navbar() {
                 />
                 <NavButton
                     href="/about"
-                    label="Tentang Kami"
+                    label="Tentang"
                     colorClass="bg-[#A3CAFF] text-[#0F0E0E]"
                     borderRadius="rounded-lg"
                     isActive={pathname === "/about"}
