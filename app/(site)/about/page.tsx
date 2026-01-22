@@ -51,9 +51,47 @@ export default async function About() {
                         baseRotation={0}
                         blurStrength={3}
                         containerClassName="my-0"
-                        textClassName="font-geist-sans text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
+                        textClassName="font-geist-sans font-thin text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
                     >
                         {description}
+                    </ScrollReveal>
+                </div>
+            </div>
+
+            {/* Target Pembaca */}
+            <div className="min-h-[50vh] flex flex-col md:flex-row items-start justify-center bg-[#0F0E0E] px-6 md:px-[60px] py-[60px] md:py-[100px] gap-8 md:gap-20 max-w-[1400px] mx-auto">
+                <div className="w-full md:w-1/4 pt-2">
+                    <h2 className="font-sans font-bold text-2xl md:text-3xl text-[#FDFFFF]">Target Pembaca/Penonton</h2>
+                </div>
+                <div className="w-full md:w-3/4">
+                    <ScrollReveal
+                        baseOpacity={0}
+                        enableBlur
+                        baseRotation={0}
+                        blurStrength={3}
+                        containerClassName="my-0"
+                        textClassName="font-geist-sans font-thin text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
+                    >
+                        Target pembaca Akurart Cinema adalah generasi muda dan dewasa muda berusia 18–30 tahun yang memiliki ketertarikan pada musik, film, seni, dan budaya populer. Mereka terbiasa mengonsumsi konten digital melalui website, media sosial, dan platform streaming, serta cenderung menyukai tulisan reflektif, opini personal, dan ulasan yang tidak kaku. Audiens kami adalah pembaca yang mencari makna, bukan sekadar informasi cepat.
+                    </ScrollReveal>
+                </div>
+            </div>
+
+            {/* Value Proposition */}
+            <div className="min-h-[50vh] flex flex-col md:flex-row items-start justify-center bg-[#0F0E0E] px-6 md:px-[60px] py-[60px] md:py-[100px] gap-8 md:gap-20 max-w-[1400px] mx-auto">
+                <div className="w-full md:w-1/4 pt-2">
+                    <h2 className="font-sans font-bold text-2xl md:text-3xl text-[#FDFFFF]">Value Proposition</h2>
+                </div>
+                <div className="w-full md:w-3/4">
+                    <ScrollReveal
+                        baseOpacity={0}
+                        enableBlur
+                        baseRotation={0}
+                        blurStrength={3}
+                        containerClassName="my-0"
+                        textClassName="font-geist-sans font-thin text-xl md:text-3xl leading-relaxed text-[#FDFFFF]"
+                    >
+                        Keunikan Akurart Cinema terletak pada pendekatan naratif dan personal dalam membahas musik, film, dan budaya. Kami tidak berfokus pada tren atau rating, melainkan pada cerita, konteks, dan pengalaman manusia di balik karya. Akurart Cinema menawarkan konten yang tenang, reflektif, dan berjarak dari clickbait, menjadikannya ruang alternatif bagi pembaca yang ingin memahami budaya secara lebih dalam dan jujur.
                     </ScrollReveal>
                 </div>
             </div>
