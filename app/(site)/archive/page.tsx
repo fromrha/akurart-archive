@@ -1,6 +1,7 @@
 import Marquee from "../../components/Marquee";
 import ArticleGrid from "../../components/ArticleGrid";
 import SubscriptionCTA from "../../components/SubscriptionCTA";
+import ScrollReveal from '../../components/ScrollReveal';
 import { client } from "@/app/sanity/client";
 import { ALL_ARTICLES_QUERY } from "@/app/sanity/queries";
 
@@ -22,11 +23,22 @@ export default async function Archive() {
         <Marquee />
       </div>
       <div className="w-full px-[10px] py-[60px] md:py-[100px]">
-        <h1 className="text-center font-bold text-7xl md:text-9xl text-[#FDFFFF] tracking-tight">
+        <h1 className="text-center font-tilt-warp font-semibold text-7xl md:text-9xl text-[#FDFFFF] tracking-tight">
           Archive
         </h1>
       </div>
       <ArticleGrid articles={articles} showAll={true} />
+      <div className="min-h-screen flex items-center justify-center bg-[#0F0E0E] px-[10px] py-[60px] md:py-[100px]">
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur
+          baseRotation={3}
+          blurStrength={4}
+          textClassName="font-geist-sans font-semibold"
+        >
+          Kami menulis tentang lagu-lagu favorit karena musik menyimpan cerita. Setiap lagu yang kami bahas merupakan sebuah ornamen yang secara personal meninggalkan jejak, emosi, ingatan, dan pengalaman tak terlupakan
+        </ScrollReveal>
+      </div>
       <SubscriptionCTA />
     </main>
   );
