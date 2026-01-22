@@ -49,8 +49,8 @@ export default function Navbar() {
             </Link>
 
             {/* Mobile Brand Text (Hidden on Desktop) */}
-            <p className="md:hidden text-center text-[#8C8D92] text-[15px] font-sans font-bold leading-tight max-w-[300px] tracking-wider z-20">
-                Media budaya & sinema berbasis narasi,<br /> refleksi, dan pengalaman manusia.
+            <p className="md:hidden text-center text-[#8C8D92] text-[14px] font-sans font-bold leading-tight max-w-[375px] tracking-wider z-20">
+                Media budaya & sinema berbasis narasi, refleksi, dan pengalaman manusia.
             </p>
 
             {/* Navigation Pills */}
@@ -58,18 +58,18 @@ export default function Navbar() {
                 flex items-center justify-center w-full md:w-auto
                 
                 /* Mobile Positioning: Absolute below the text, overlapping the hero */
-                absolute top-[85%] left-0 z-30
+                absolute top-[140%] left-0 z-30
                 
                 /* Desktop Positioning: Static flex */
                 md:static md:justify-end md:gap-2
             `}>
-                <div className="flex items-center gap-3 scale-110 md:scale-100 origin-top">
+                <div className="flex items-center gap-3 scale-95 md:scale-100 origin-top">
                     <NavButton
                         href="/"
                         label="Halaman Utama"
                         mobileLabel="Home"
                         colorClass="bg-[#FF5700] text-[#0F0E0E]"
-                        borderRadius="rounded-md"
+                        borderRadius=""
                         isActive={pathname === "/"}
                     />
                     <NavButton
