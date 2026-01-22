@@ -50,9 +50,9 @@ export default function Footer() {
                                     <div className="border border-white/30 rounded-full px-3 py-1 text-[10px] uppercase tracking-widest self-start md:self-end mb-2">
                                         Links
                                     </div>
-                                    <Link href="/" className="text-lg md:text-xl hover:text-[#FF5700] transition-colors leading-none">Home</Link>
-                                    <Link href="/archive" className="text-lg md:text-xl hover:text-[#32CE57] transition-colors leading-none">Archive</Link>
-                                    <Link href="/about" className="text-lg md:text-xl hover:text-[#A3CAFF] transition-colors leading-none">About</Link>
+                                    <Link href="/" scroll={false} className="text-lg md:text-xl hover:text-[#FF5700] transition-colors leading-none">Home</Link>
+                                    <Link href="/archive" scroll={false} className="text-lg md:text-xl hover:text-[#32CE57] transition-colors leading-none">Archive</Link>
+                                    <Link href="/about" scroll={false} className="text-lg md:text-xl hover:text-[#A3CAFF] transition-colors leading-none">About</Link>
                                 </div>
 
                                 {/* Social Links */}

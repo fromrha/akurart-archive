@@ -40,7 +40,7 @@ export default function Navbar() {
             `}
         >
             {/* Desktop Logo */}
-            <Link href="/" className="hidden md:flex items-center gap-2">
+            <Link href="/" scroll={false} className="hidden md:flex items-center gap-2">
                 <img
                     src="/akurart-logo-main.svg"
                     alt="Akurart Archive"
@@ -112,6 +112,7 @@ function NavButton({
     return (
         <Link
             href={href}
+            scroll={false}
             className={`
         px-6 py-2.5 md:px-5 md:py-2 text-base md:text-base font-semibold font-sans transition-transform duration-200 hover:scale-105 active:scale-95
         ${colorClass}

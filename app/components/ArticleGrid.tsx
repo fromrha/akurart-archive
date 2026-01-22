@@ -40,6 +40,7 @@ export default function ArticleGrid({ articles = [], showAll = false }: { articl
                 <div className="mt-[10px] w-full">
                     <Link
                         href="/archive"
+                        scroll={false}
                         className="flex items-center justify-center w-full bg-[#FDFFFF] py-8 rounded-2xl transition-all duration-300 hover:bg-[#FF5700] hover:scale-[1.005] active:scale-[0.995]"
                     >
                         <span className="font-serif italic text-4xl md:text-5xl text-[#0F0E0E]">
@@ -57,7 +58,7 @@ function ArticleCard({ article }: { article: Article }) {
     const imageUrl = article.mainImage ? urlFor(article.mainImage)?.url() : null;
 
     return (
-        <Link href={`/article/${article.slug.current}`} className="group relative block w-full overflow-hidden rounded-2xl bg-zinc-900 aspect-[625/700]">
+        <Link href={`/article/${article.slug.current}`} scroll={false} className="group relative block w-full overflow-hidden rounded-2xl bg-zinc-900 aspect-[625/700]">
             {/* Image Container */}
             <div className="relative w-full h-full overflow-hidden">
                 {imageUrl ? (
