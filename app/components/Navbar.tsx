@@ -31,9 +31,10 @@ export default function Navbar() {
                 
                 /* Mobile Styles (Default) */
                 relative bg-[#0F0E0E] py-6 flex flex-col items-center gap-6 justify-center
+                ${!isHome ? 'mb-24' : ''}
                 
                 /* Desktop Styles (md+) */
-                md:absolute md:bg-transparent md:flex-row md:justify-between md:px-6 md:py-4 md:gap-0
+                md:absolute md:bg-transparent md:flex-row md:justify-between md:px-6 md:py-4 md:gap-0 md:mb-0
                 
                 /* Sticky State (Optional: applies to both but mostly relevant for desktop overlay behavior) */
                 ${isScrolled ? 'md:fixed md:top-0 md:bg-[#0F0E0E]/90' : 'md:top-0 md:top-[54px]'}
