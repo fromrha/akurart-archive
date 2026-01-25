@@ -64,7 +64,7 @@ export default function AboutGallery({ images }: { images: any[] }) {
                 className="flex items-center gap-10 md:gap-8 px-10 md:px-10 w-max"
             >
                 {images.map((img, i) => (
-                    <div key={img._key || i} className="relative w-[30vw] md:w-[25vw] aspect-square flex-shrink-0 flex items-center justify-center">
+                    <div key={img._key || i} className="relative w-[70vw] md:w-[45vw] lg:w-[25vw] aspect-square flex-shrink-0 flex items-center justify-center">
                         <Image
                             src={urlFor(img)?.url() || ""}
                             alt={`About gallery image ${i + 1}`}
